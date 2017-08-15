@@ -1,23 +1,81 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Snake : MonoBehaviour {
 
-    public float speed = 10f;
+    public int startTailLength = 0;
+    public float speed = 5f;
+    public float rotSpeed = 5f;
+    public float distanceBetweenSegments = 1.5f;
+    public GameObject tailPrefab;
 
-	public void Move()
+    private List<Transform> tail;
+    private bool stop = false;
+
+    private void Start()
     {
+        tail = new List<Transform>();
+        for(int i = 0; i < startTailLength; i++)
+        {
+            IncreaseTail();
+        }
+    }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            IncreaseTail();
+        }
+        if (!stop)
+        {
+            Move();
+            Turn();
+        }
+    }
+
+    public void Move()
+    {
+        Vector3 pos = transform.position;
+        Quaternion rotation = transform.rotation;
+        Vector3 movement = Vector3.forward * speed * Time.deltaTime;
+
+        transform.Translate(movement);
+
+        if (tail.Count > 0 && Vector3.Distance(transform.position, tail[0].position) >= distanceBetweenSegments)
+        {
+            tail.Last().rotation = rotation;
+            tail.Last().position = pos;
+            tail.Insert(0, tail.Last());
+            tail.RemoveAt(tail.Count - 1);
+        }
     }
 
     public void Turn()
     {
-
+        transform.Rotate(Vector3.up, rotSpeed * Input.GetAxis("Horizontal"));
     }
 
     public void IncreaseTail()
     {
+        GameObject g = Instantiate(tailPrefab, transform.position, transform.rotation);
+        g.name = "tail" + tail.Count();
+        tail.Insert(0, g.transform);
+        Debug.Log(tail.Count);
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Food>() != null)
+        {
+            IncreaseTail();
+        }
+        else if(other.name != "Platform" && other.name != tail[0].name)
+        {
+            stop = true;
+            Debug.Log("Lose!");
+        }
     }
 }

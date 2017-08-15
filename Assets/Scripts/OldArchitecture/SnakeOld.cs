@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class SnakeOld : MonoBehaviour
 {
-
-    public int maxLength = 10;
-    public int startLength = 2;
-
     public float speed = 5f;
     public float rotSpeed = 5f;
     public float distanceBetweenSegments = 1.5f;
