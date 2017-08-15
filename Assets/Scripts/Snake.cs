@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Snake : MonoBehaviour {
 
@@ -10,6 +11,8 @@ public class Snake : MonoBehaviour {
     public float rotSpeed = 5f;
     public float distanceBetweenSegments = 1.5f;
     public GameObject tailPrefab;
+
+    public static bool loss = false;
 
     private List<Transform> tail;
     private bool stop = false;
@@ -77,6 +80,7 @@ public class Snake : MonoBehaviour {
         {
             stop = true;
             Debug.Log("Lose! " + other.name);
+            Application.LoadLevel("TestScene");
         }
     }
 }
