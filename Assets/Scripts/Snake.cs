@@ -42,11 +42,11 @@ public class Snake : MonoBehaviour {
         Quaternion rotation = transform.rotation;
         Vector3 movement = Vector3.forward * speed * Time.deltaTime;
 
-        transform.Translate(movement);
-
+        transform.Translate(movement);       
         if (tail.Count > 0 && Vector3.Distance(transform.position, tail[0].position) >= distanceBetweenSegments)
         {
             tail.Last().rotation = rotation;
+            new WaitForEndOfFrame();
             tail.Last().position = pos;
             tail.Insert(0, tail.Last());
             tail.RemoveAt(tail.Count - 1);
@@ -63,6 +63,7 @@ public class Snake : MonoBehaviour {
         GameObject g = Instantiate(tailPrefab, transform.position, transform.rotation);
         g.name = "tail" + tail.Count();
         tail.Insert(0, g.transform);
+
         Debug.Log(tail.Count);
     }
 
@@ -72,10 +73,10 @@ public class Snake : MonoBehaviour {
         {
             IncreaseTail();
         }
-        else if(other.name != "Platform" && other.name != tail[0].name)
+        else if(tail.Count > 0 && other.gameObject != tail[0].gameObject && other.gameObject != tail[1].gameObject)
         {
             stop = true;
-            Debug.Log("Lose!");
+            Debug.Log("Lose! " + other.name);
         }
     }
 }
