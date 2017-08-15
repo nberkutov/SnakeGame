@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 17637115a2b2f174db75a5ca26c9a1ad
+timeCreated: 1501492105
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: RM Playtime solid
+  fontNames:
+  - RM Playtime solid
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

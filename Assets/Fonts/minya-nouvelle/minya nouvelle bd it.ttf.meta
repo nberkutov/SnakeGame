@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2fa299609a2d6344b9e4074674aac155
+timeCreated: 1501492105
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Minya Nouvelle
+  fontNames:
+  - Minya Nouvelle
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 01d225d4eddac4c42a75c091bc0aa623, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

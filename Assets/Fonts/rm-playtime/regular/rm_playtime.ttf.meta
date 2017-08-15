@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a51b5880ce49cff4f91abd9e55d9ea58
+timeCreated: 1501492105
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: RM Playtime
+  fontNames:
+  - RM Playtime
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

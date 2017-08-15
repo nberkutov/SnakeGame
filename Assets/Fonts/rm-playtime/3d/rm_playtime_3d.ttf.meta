@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a560c3b3e75839c4b996c14051d80766
+timeCreated: 1501492105
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: RM Playtime 3D
+  fontNames:
+  - RM Playtime 3D
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
