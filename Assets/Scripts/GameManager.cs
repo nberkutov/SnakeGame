@@ -1,22 +1,1 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class GameManager : MonoBehaviour
-{
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("TestScene", LoadSceneMode.Single);
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
-}
+﻿using System.Collections;using System.Collections.Generic;using UnityEngine;public class GameManager : MonoBehaviour {    public static int lives = 3;    public static int score = 0;}

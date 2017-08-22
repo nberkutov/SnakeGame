@@ -10,12 +10,16 @@ public class Snake : MonoBehaviour {
     public float speed = 5f;
     public float rotSpeed = 5f;
     public float distanceBetweenSegments = 1.5f;
+    //public float delay = 1f;
     public GameObject tailPrefab;
 
     public static bool loss = false;
 
     private List<Transform> tail;
     private bool stop = false;
+    private bool isPaused = false;
+
+    delegate void Delay(int num);
 
     private void Start()
     {
@@ -28,6 +32,11 @@ public class Snake : MonoBehaviour {
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = isPaused ? 0: 1;
+            isPaused = !isPaused;
+        }
         if (Input.GetKey(KeyCode.Q))
         {
             IncreaseTail();
@@ -76,11 +85,13 @@ public class Snake : MonoBehaviour {
         {
             IncreaseTail();
         }
-        else if(tail.Count > 0 && other.gameObject != tail[0].gameObject && other.gameObject != tail[1].gameObject)
+        else if((tail.Count > 0 && other.gameObject != tail[0].gameObject && other.gameObject != tail[1].gameObject) || !(other.name.StartsWith("tail")))
         {
             stop = true;
+            GameManager.lives--;
+
             Debug.Log("Lose! " + other.name);
-            Application.LoadLevel("TestScene");
+            //SceneManager.LoadScene("TestScene", LoadSceneMode.Single);
         }
     }
 }
