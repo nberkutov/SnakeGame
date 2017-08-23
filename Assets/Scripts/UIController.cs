@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoBehaviour {
+public class UIController : MonoBehaviour {
 
-    public static FoodManager FoodMr;
+	// Use this for initialization
 	void Start () {
-        FoodMr = GetComponent<FoodManager>();
-        FoodMr.SpawnFood();
+		
 	}
 	
 	// Update is called once per frame

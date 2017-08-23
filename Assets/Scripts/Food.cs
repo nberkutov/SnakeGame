@@ -21,8 +21,8 @@ public class Food : MonoBehaviour {
         if(other.GetComponent<Snake>() != null)
         {
             Debug.Log("Food");
-            ScoreManager.score += 10;
-            Manager.FoodMr.SpawnFood();
+            ScoreManager.score++;
+            SceneManager.foodManager.SpawnFood();
             Destroy(this.gameObject);
         }
     }

@@ -7,7 +7,7 @@ public class GameOverText : MonoBehaviour {
 
     private void Update()
     {
-        if (Snake.loss)
+        if (GameManager.lives == 0)
         {
             GetComponent<Text>().enabled = true;
         }
