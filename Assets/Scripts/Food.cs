@@ -20,10 +20,14 @@ public class Food : MonoBehaviour {
     {
         if(other.GetComponent<Snake>() != null)
         {
-            Debug.Log("Food");
-            ScoreManager.score++;
+            Game.score++;
             SceneManager.foodManager.SpawnFood();
             Destroy(this.gameObject);
+        }
+        else
+        {
+            SceneManager.foodManager.SpawnFood();
+            Destroy(gameObject);
         }
     }
 
